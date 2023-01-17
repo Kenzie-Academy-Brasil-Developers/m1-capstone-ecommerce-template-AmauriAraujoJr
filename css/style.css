@@ -105,7 +105,7 @@ nav{
 .carrinho{
     width:20%;
     height: 100%;
-background-color: #828282;
+
     margin-right: 80px;;
     margin-top: 13px;
     
@@ -203,7 +203,7 @@ text-decoration:underline;
     color:#37268C;
 }
 form{
-    width: 100%;
+    width: 70%;
     height: 10%;
     display: flex;
     align-items: center;
@@ -252,13 +252,13 @@ h3{
 .espaco-car{
     height: 100%;
     width: 100%;
-    /* display: flex; */
+    display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
-    gap:50px;
+    justify-content: center;
     overflow-y: auto;
     overflow-x: hidden;
+    
 }
 
 .liCar{
