@@ -174,8 +174,10 @@ function createCard(card){
 
 let btnTodas= document.querySelector("#btnTodas");
 btnTodas.addEventListener('click',function(e){
-let lager=document.querySelectorAll(".card").forEach((e)=>{
-    if(e.childNodes[1].childNodes[0]){
+let todas=document.querySelectorAll(".card")
+todas.forEach((e)=>{
+    let cervTd=e.childNodes[1].childNodes[0]
+    if(cervTd){
         e.classList.remove("hide")
       
     }
@@ -187,8 +189,10 @@ let lager=document.querySelectorAll(".card").forEach((e)=>{
 
 let btnLager= document.querySelector("#btnLager");
 btnLager.addEventListener('click',function(e){
-let lager=document.querySelectorAll(".card").forEach((e)=>{
-    if(e.childNodes[1].childNodes[0].innerText!="Lager"){
+let lager=document.querySelectorAll(".card")
+lager.forEach((e)=>{
+    let cervLager=e.childNodes[1].childNodes[0].innerText
+    if(cervLager!="Lager"){
         e.classList.toggle("hide")
       
     }
@@ -199,9 +203,12 @@ let lager=document.querySelectorAll(".card").forEach((e)=>{
 
 
 let btnPilsen= document.querySelector("#btnPilsen");
+
 btnPilsen.addEventListener('click',function(e){
-let pilsen=document.querySelectorAll(".card").forEach((e)=>{
-    if(e.childNodes[1].childNodes[0].innerText!="Pilsen"){
+let pilsen=document.querySelectorAll(".card")
+pilsen.forEach((e)=>{
+    let cervPilsen=e.childNodes[1].childNodes[0].innerText
+    if(cervPilsen!="Pilsen"){
         e.classList.toggle("hide")
       
     }
@@ -213,8 +220,10 @@ let pilsen=document.querySelectorAll(".card").forEach((e)=>{
  let btnIpa=document.querySelector("#btnIpa");
  btnIpa.addEventListener('click',function(e){
 
-    let ipas=document.querySelectorAll(".card").forEach((e)=>{
-        if(e.childNodes[1].childNodes[0].innerText!="Ipa"){
+    let ipas=document.querySelectorAll(".card")
+    ipas.forEach((e)=>{
+        let  cervIpa=e.childNodes[1].childNodes[0].innerText;
+        if(cervIpa!="Ipa"){
             e.classList.toggle("hide")
           
         }
@@ -226,12 +235,20 @@ let pilsen=document.querySelectorAll(".card").forEach((e)=>{
 let input=document.querySelector('.pesquisa')
 
 input.addEventListener('input',function(e){
-    let pesquisa=document.querySelectorAll(".card").forEach((e)=>{
-        if(e.childNodes[1].childNodes[1].innerText.includes(input.value)){
-            e.classList.toggle("show")
-          
+    let pesquisa=document.querySelectorAll(".card")
+    pesquisa.forEach((e)=>{
+        let titleCard=e.childNodes[1].childNodes[1].innerText.toLowerCase()
+        
+        if(titleCard.includes(input.value.toLowerCase())){
+            e.classList.remove("hide")
+            e.classList.add("show")
+           
         }
-        else{  e.classList.toggle("hide")}
+        else{ 
+            e.classList.remove("show")
+             e.classList.add("hide")
+            
+        }
     
     
     })
