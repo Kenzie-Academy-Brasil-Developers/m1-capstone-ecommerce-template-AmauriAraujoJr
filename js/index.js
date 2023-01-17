@@ -200,13 +200,7 @@ let lager=document.querySelectorAll(".card").forEach((e)=>{
 
 let btnPilsen= document.querySelector("#btnPilsen");
 btnPilsen.addEventListener('click',function(e){
-let pilsen=document.querySelectorAll(".card")
-
-   
-for( let i =0 ;i<pilsen.length;i++){
-    console.log(pilsen[i].tag)
-   
-}
+let pilsen=document.querySelectorAll(".card").forEach((e)=>{
     if(e.childNodes[1].childNodes[0].innerText!="Pilsen"){
         e.classList.toggle("hide")
       
@@ -214,7 +208,7 @@ for( let i =0 ;i<pilsen.length;i++){
 
 
 })
-
+})
 
  let btnIpa=document.querySelector("#btnIpa");
  btnIpa.addEventListener('click',function(e){
@@ -232,62 +226,16 @@ for( let i =0 ;i<pilsen.length;i++){
 let input=document.querySelector('.pesquisa')
 
 input.addEventListener('input',function(e){
- 
-       
-    })
-
-//     function pesquisa(){
-//         for(let i = 0 ; i< list .length;i++){
-       
-//  if(list[i].nameItem.includes(input.value)){
+    let pesquisa=document.querySelectorAll(".card").forEach((e)=>{
+        if(e.childNodes[1].childNodes[1].innerText.includes(input.value)){
+            e.classList.toggle("show")
+          
+        }
+        else{  e.classList.toggle("hide")}
     
-//      let card= document.createElement("li");
-//      card.classList.add("card")
-//      card.id=list[i].id
-//      vitrine.appendChild(card)
-
-//      let divFigure= document.createElement('div')
-//      divFigure.classList.add("figure-card");
-//      card.appendChild(divFigure);
-//      let imgCard=document.createElement('img');
-//       imgCard.src=list[i].img;
-//      imgCard.classList.add('img-card');
-//      divFigure.appendChild(imgCard);
-
-//      let divInfo= document.createElement('div');
-//              divInfo.classList.add("info");
-//              card.appendChild(divInfo)
-
-//              let h3= document.createElement('h3');
-//              h3.classList.add("tipo");
-//           h3.innerText=list[i].tag;
-//           h3.classList.add('etiqueta')
-//              divInfo.appendChild(h3);
+    
+    })
+    })
        
-//      let h4= document.createElement("h4");
-//      h4.classList.add("title")
-//              h4.innerText=list[i].nameItem;
-//              divInfo.appendChild(h4);
-
-//              let descr=document.createElement("small");
-//            descr.innerText=list[i].description;
-//               divInfo.appendChild(descr);
-
-//               let valor =document.createElement("p");
-//      valor.innerText=(`R$: ${list[i].value.toFixed(2)}`);
-//         divInfo.appendChild(valor);
-
-//         let botao=document.createElement('button');
-//      botao.classList.add('card-button');
-//      botao.id=list[i].botao
-//     botao.innerText=list[i].addCart
-//     card.appendChild(botao);
-     
-//  }
-     
-//      else{
-
-//      }
-
-//     }
-
+    
+    
