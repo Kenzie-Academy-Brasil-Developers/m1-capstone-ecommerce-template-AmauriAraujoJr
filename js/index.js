@@ -5,7 +5,7 @@ function addCards(list){
 
 
     for(let i = 0 ; i< list .length;i++){
-       console.log(list[i].nameItem);
+      
 
 
         let card= document.createElement("li");
@@ -62,6 +62,7 @@ let botoes=document.querySelectorAll(".card-button");
 let countCard=0;
 
 let somas=0;
+
 function addCArrinho(){
 for(let i= 0 ;i<botoes.length;i++){
    let btn=botoes[i];
@@ -81,20 +82,30 @@ let cria=createCard(card)
 
  let addVazio=document.querySelector("#add-vazio");
  addVazio.classList.add('hide')
+ 
  lista.appendChild(cria)
 
      countCard++
    
-  let cont=document.querySelector('#contador').innerText=(`${countCard}`);
+  let cont=document.querySelector('#contador')
+  cont.innerText=(`${countCard}`);
 
  
   somas=somas+card.value
 
-  let valorTotal=document.querySelector('#total').innerText=(`R$: ${somas.toFixed(2)}`)
+  let valorTotal=document.querySelector('#total')
+  valorTotal.innerText=(`R$: ${somas.toFixed(2)}`)
 
 let menuTotais=document.querySelector(".total");
-console.log(menuTotais)
-menuTotais.classList.remove('hide')
+
+  
+    menuTotais.classList.remove('hide')
+
+   
+  
+    
+    
+
 
 }
    )
@@ -133,20 +144,44 @@ function createCard(card){
     h4.innerText=card.nameItem;
    h4.classList.add("titulo-carrinho")
     p.innerText=(`R$: ${card.value.toFixed(2)}`);
+    p.classList.add("p-carrinho")
     btn.innerText="Remover"
     btn.id='car_'+card.id
     btn.classList.add("card-button")
-    btn.classList.add("btnColor")
-
+  
     btn.addEventListener("click",function(event){
-        event.path[2].remove()
+    li.remove()
         countCard--
    
-        let cont=document.querySelector('#contador').innerText=(`${countCard}`);
+        let cont=document.querySelector('#contador')
+        cont.innerText=(`${countCard}`);
 
         somas=somas-card.value
 
-        let valorTotal=document.querySelector('#total').innerText=(`R$: ${somas.toFixed(2)}`)
+        console.log(somas==0)
+
+        let menuTotais=document.querySelector(".total")
+        let addVazio=document.querySelector("#add-vazio");
+        let tituloVazio=document.querySelector("#titulo-vazio")
+
+        if(somas==0){
+            menuTotais.classList.add('hide')
+      
+        }
+
+        if(somas==0){
+           
+ addVazio.classList.remove('hide')
+        }
+
+        if(somas==0){
+            
+            tituloVazio.classList.remove("hide")
+        }
+
+        let valorTotal=document.querySelector('#total')
+        valorTotal.innerText=(`R$: ${somas.toFixed(2)}`)
+     
       
     })
 
@@ -165,12 +200,6 @@ function createCard(card){
     return li
 }
 
-// function soma(list){
-//     for(let i = 0; i<list.length;i++){
-//  somas+=products[i].valor
-//     }
-//     return somas
-//  }
 
 let btnTodas= document.querySelector("#btnTodas");
 btnTodas.addEventListener('click',function(e){
@@ -253,6 +282,3 @@ input.addEventListener('input',function(e){
     
     })
     })
-       
-    
-    
